@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vue CDN Online -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- For Development from https://github.com/Qudusayo/local-cdn -->
+    <script src="http://localhost:8900/js/vue.js"></script>
+    <title>EXPENSE-TRACKER</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="title">EXPENSE TRACKER</h1>
+        <p class="abt">
+            <q>This expense tracker helps you track your expenses for as long as you wish. Whenever you wish to start
+                tracking afresh (This can be after a week or a month or any period of time), click on the clear records
+                button to clear everything. Click on the 'Export as CSV button to export the records as a .csv
+                file'
+            </q><small> -- Manaswini</small>
+        </p>
+        <div class="flex">
+            <div class="flex_content flex_form">
+                <form @submit.prevent="addExpense" class="form">
+                    <label for="amount">Amount</label>
+                    <input type="tel" id="amount" v-model.number="amount" autocomplete="off" required>
+
+                    <label for="to">To</label>
+                    <input type="text" id="to" v-model="to" autocomplete="off" required>
+
+                    <label for="note">Note</label>
+                    <textarea id="note" rows="5" v-model="info"></textarea>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" v-model="date" required>
+
+                    <button class="btn btn_success" type="submit">Add expense</button>
+                    <button class="btn btn_danger" @click.prevent="clearExpenses">Clear record</button>
+                    <button class="btn btn_primary" @click.prevent="getCsv">Export as .csv</button>
+                </form>
+            </div>
+            <div class="flex_content flex_expenses">
+                <h2 class="head">Expenses</h2>
+                <div class="total">
+                    <h3>TOTAL</h3>
+                    <h3 v-if="total > 0 && Math.abs(total) !== Math.floor(total)">${{ total }}</h3>
+                    <h3 v-if="Math.abs(total) === Math.floor(total)">${{ total }}.0</h3>
+                    <h3 v-else>$0.0</h3>
+                </div>
+                <div class="expense" v-for="expense in expenses">
+                    <p class="to"><b>To:</b> {{ expense.to }}</p>
+                    <p class="date"><b>Date:</b> {{ expense.date }}</p>
+                    <p class="amnt"><b>Amount:</b> ${{ expense.amount }}</p>
+                    <p class="note"><b>Note:</b> {{ expense.info }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
