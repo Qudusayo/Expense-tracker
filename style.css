@@ -132,6 +132,7 @@ form button.btn_primary{
     width: 85%;
     margin: auto;
     margin-bottom: 2%;
+    word-wrap: break-word;
 }
 
 .flex_expenses .expense p{
