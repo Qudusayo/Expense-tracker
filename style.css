@@ -30,11 +30,11 @@ body {
     margin-right: 1%;
 }
 
-.flex_content:nth-of-type(2){
+.flex_content:nth-of-type(2) {
     flex: 1.3;
 }
 
-.flex_content:nth-of-type(1){
+.flex_content:nth-of-type(1) {
     background-color: rgba(23, 47, 78, 0.918);
 }
 
@@ -63,11 +63,11 @@ body {
     padding: 5px 0 5px 5%;
 }
 
-.flex_form{
+.flex_form {
     padding: 40px;
 }
 
-.form button{
+.form button {
     display: block;
     margin-bottom: 10px;
     width: 100%;
@@ -81,27 +81,27 @@ body {
     font-family: "Nunito", sans-serif;
 }
 
-form button.btn_success{
+form button.btn_success {
     background-color: rgb(3, 211, 90);
     color: #ffffff;
 }
 
-form button.btn_danger{
+form button.btn_danger {
     background-color: rgb(228, 29, 29);
     color: #ffffff;
 }
 
-form button.btn_primary{
+form button.btn_primary {
     background-color: rgb(6, 85, 255);
     color: #ffffff;
 }
 
-.flex_expenses{
+.flex_expenses {
     overflow-y: auto;
     max-height: 120vh;
 }
 
-.flex_expenses .head{
+.flex_expenses .head {
     background-color: rgba(23, 47, 78, 0.918);
     margin: 0;
     padding-top: 10px;
@@ -111,7 +111,7 @@ form button.btn_primary{
     border-top-left-radius: 7px;
 }
 
-.flex_expenses .total{
+.flex_expenses .total {
     background-color: rgba(23, 47, 78, 0.562);
     display: flex;
     padding: 5px 10px;
@@ -119,11 +119,11 @@ form button.btn_primary{
     margin-bottom: 5%;
 }
 
-.flex_expenses .total h3{
+.flex_expenses .total h3 {
     margin: 0;
 }
 
-.flex_expenses .expense{
+.flex_expenses .expense {
     border-left: 10px solid rgba(23, 47, 78, 0.918);
     color: #000000;
     padding: 2%;
@@ -135,23 +135,39 @@ form button.btn_primary{
     word-wrap: break-word;
 }
 
-.flex_expenses .expense p{
+.flex_expenses .expense p {
     margin: 1%;
 }
 
-@media screen and (max-width: 768px){
-    .flex{
+@media screen and (max-width: 768px) {
+    .flex {
         flex-direction: column;
         width: 90%;
     }
 
-    .flex_expenses{
+    .flex_expenses {
         margin-top: 3%;
     }
 }
 
-@media screen and (max-width: 500px){
-    body{
+@media screen and (max-width: 500px) {
+    body {
         padding: 0 20px;
+    }
+}
+
+.v-leave-active {
+    animation: slide-out 1s ease-out forwards;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(20px);
     }
 }

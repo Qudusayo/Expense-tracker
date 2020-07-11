@@ -64,12 +64,14 @@
                     <h3 v-if="Math.abs(total) === Math.floor(total)">${{ total }}.0</h3>
                     <h3 v-else>$0.0</h3>
                 </div>
-                <div class="expense" v-for="expense in expenses">
-                    <p class="to"><b>To:</b> {{ expense.to }}</p>
-                    <p class="date"><b>Date:</b> {{ expense.date }}</p>
-                    <p class="amnt"><b>Amount:</b> ${{ expense.amount }}</p>
-                    <p class="note"><b>Note:</b> {{ expense.info }}</p>
-                </div>
+                <transition-group>
+                        <div class="expense" v-for="(expense, index) in expenses" :key="index">
+                            <p class="to"><b>To:</b> {{ expense.to }}</p>
+                            <p class="date"><b>Date:</b> {{ expense.date }}</p>
+                            <p class="amnt"><b>Amount:</b> ${{ expense.amount }}</p>
+                            <p class="note"><b>Note:</b> {{ expense.info }}</p>
+                        </div>
+                </transition-group>
             </div>
         </div>
     </div>
